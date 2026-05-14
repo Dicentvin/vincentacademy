@@ -41,7 +41,8 @@ export function SubjectForm({
         setLoadingOptions(true);
         try {
           const { data } = await api.get("/users?role=teacher");
-          setTeachers(data.users);
+          const usersData = data as { users: Option[] };
+          setTeachers(usersData.users);
         } catch (error) {
           toast.error("Failed to load teachers");
         } finally {
