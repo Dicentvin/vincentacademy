@@ -143,7 +143,7 @@ const UniversalUserForm = ({ type, initialData, onSuccess, role }: Props) => {
         let backendUser: any;
 
         try {
-          const result = await lmsAuth.login(data.email, data.password);
+          const result = await lmsAuth.login(data.email ?? "", data.password ?? "");
           backendToken = result.token;
           backendUser  = result.user;
         } catch (err: any) {
